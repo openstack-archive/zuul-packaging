@@ -1,0 +1,22 @@
+Source: zuul
+Maintainer: Paul Belanger <paul.belanger@polybeacon.com>
+Section: python
+Priority: optional
+Build-Depends: debhelper (>= 8.0.0),
+ python (>= 2.6)
+Build-Depends-Indep:
+ python-git (>= 0.3.2~RC1),
+ python-jenkins,
+ python-lockfile,
+ python-nose,
+ python-paramiko,
+ python-paste,
+ python-setuptools,
+ python-webob,
+ python-yaml
+Standards-Version: 3.9.1
+
+Package: zuul
+Architecture: all
+Depends: ${misc:Depends}, ${python:Depends}
+Description: Trunk gating system
