@@ -12,6 +12,7 @@ Build-Depends-Indep:
  python-paramiko,
  python-paste,
  python-setuptools,
+ python-sphinx,
  python-webob,
  python-yaml
 Standards-Version: 3.9.1
