@@ -19,5 +19,14 @@ Standards-Version: 3.9.1
 
 Package: zuul
 Architecture: all
-Depends: ${misc:Depends}, ${python:Depends}
+Depends: jenkins,
+ python-git (>= 0.3.2~RC1),
+ python-jenkins,
+ python-lockfile,
+ python-paramiko,
+ python-paste,
+ python-webob,
+ python-yaml,
+ ${misc:Depends},
+ ${python:Depends}
 Description: Trunk gating system
