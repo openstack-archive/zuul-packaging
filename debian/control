@@ -15,11 +15,12 @@ Build-Depends-Indep:
  python-sphinx,
  python-webob,
  python-yaml
-Standards-Version: 3.9.1
+Standards-Version: 3.9.3
 
 Package: zuul
 Architecture: all
-Depends: jenkins,
+Depends: jenkins (>= 1.426),
+ python-daemon,
  python-git (>= 0.3.2~RC1),
  python-jenkins,
  python-lockfile,
