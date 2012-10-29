@@ -13,6 +13,12 @@ override_dh_auto_build:
 override_dh_auto_test:
 	nosetests
 
+override_dh_install:
+	dh_install
+	install -D -m 0644 $(CURDIR)/etc/layout.yaml-sample $(CURDIR)/debian/etc/zuul/layout.yaml
+	install -D -m 0644 $(CURDIR)/etc/logging.conf-sample $(CURDIR)/debian/etc/zuul/logging.conf
+	install -D -m 0644 $(CURDIR)/etc/zuul.conf-sample $(CURDIR)/debian/etc/zuul/zuul.conf
+
 get-orig-source:
 	@@[ -d ../tarballs/. ] || mkdir -p ../tarballs
 	uscan --verbose --force-download --rename --destdir=../tarballs
