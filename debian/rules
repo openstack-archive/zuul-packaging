@@ -4,11 +4,15 @@
 #export DH_VERBOSE=1
 
 %:
-	dh $@ --with-python2
+	dh $@ --with python2,sphinxdoc
 
 override_dh_auto_build:
 	dh_auto_build
-	python setup.py build_sphinx
+	$(MAKE) -C doc html man BUILDDIR=$(CURDIR)/build/docs
+
+override_dh_auto_clean:
+	dh_auto_clean
+	rm -rf *.egg*
 
 override_dh_auto_test:
 	nosetests
@@ -20,5 +24,4 @@ override_dh_install:
 	install -D -m 0644 $(CURDIR)/etc/zuul.conf-sample $(CURDIR)/debian/etc/zuul/zuul.conf
 
 get-orig-source:
-	@@[ -d ../tarballs/. ] || mkdir -p ../tarballs
-	uscan --verbose --force-download --rename --destdir=../tarballs
+	uscan --noconf --force-download --rename --repack --destdir=.

@@ -1,5 +1,5 @@
-zuul (1.0-1) UNRELEASED; urgency=low
+zuul (1.2.0-1) UNRELEASED; urgency=low
 
   * Initial release
 
- -- Paul Belanger <paul.belanger@polybeacon.com>  Fri, 12 Oct 2012 19:55:53 -0400
+ -- Paul Belanger <paul.belanger@polybeacon.com>  Wed, 27 Mar 2013 10:41:16 -0400
