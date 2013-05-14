@@ -1,5 +1,5 @@
 zuul (1.2.0-1) UNRELEASED; urgency=low
 
-  * Initial release
+  * Initial release (Closes: #705844)
 
- -- Paul Belanger <paul.belanger@polybeacon.com>  Wed, 27 Mar 2013 10:41:16 -0400
+ -- Paul Belanger <paul.belanger@polybeacon.com>  Tue, 14 May 2013 19:27:22 -0400
