@@ -1,2 +1,2 @@
 version=3
-http://tarballs.openstack.org/zuul/zuul-([0-9.]*).tar.gz debian
+http://tarballs.openstack.org/zuul/zuul-([\d\.]+)\.tar\.gz debian
