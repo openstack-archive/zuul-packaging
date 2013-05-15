@@ -20,13 +20,20 @@ set -e
 
 case "$1" in
 	configure)
-		chown -R jenkins:jenkins /etc/zuul
-		chown -R jenkins:jenkins /var/lib/zuul
-		chown -R jenkins:adm /var/log/zuul
+		# add zuul user
+		if ! getent passwd zuul > /dev/null ; then
+			echo 'Adding system user for Zuul' 1>&2
+			adduser --system --group --quiet \
+				--home /var/lib/zuul \
+				--no-create-home --disabled-login \
+				--gecos "Zuul trunk gating daemon" \
+				zuul
+		fi
+		chown -R zuul:zuul /etc/zuul
+		chown -R zuul:zuul /var/lib/zuul
+		chown -R zuul:adm /var/log/zuul
 
-		chmod 0640 /etc/zuul/layout.yaml
-		chmod 0640 /etc/zuul/logging.conf
-		chmod 0640 /etc/zuul/zuul.conf
+		chmod 0640 -R /etc/zuul/*
 
 		chmod 0750 /etc/zuul
 		chmod 0750 /var/lib/zuul

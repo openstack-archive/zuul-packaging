@@ -1,20 +1,22 @@
-Format: http://dep.debian.net/deps/dep5
+Format: http://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
 Upstream-Name: Zuul
 Upstream-Contact: OpenStack Continuous Integration Administrators <openstack-ci-admins@lists.launchpad.net>
 Source: http://launchpad.net/zuul
 
 Files: *
-Copyright: 2011-2013 OpenStack, LLC.
-           2012 Hewlett-Packard Development Company, L.P.
-           2013 Antoine "hashar" Musso
-           2013 OpenStack Foundation
-           2013 Timo Tijhof
-           2013 Wikimedia Foundation
+Copyright: 2011-2013, OpenStack, LLC.
+           2012, Hewlett-Packard Development Company, L.P.
+           2013, Antoine "hashar" Musso
+           2013, OpenStack Foundation
+           2013, Timo Tijhof
+           2013, Wikimedia Foundation
 License: Apache
 
 Files: debian/*
 Copyright: 2012 Paul Belanger <paul.belanger@polybeacon.com>
-License: Apache 2.0
+License: Apache
+
+License: Apache
  Licensed under the Apache License, Version 2.0 (the "License"); you may
  not use this file except in compliance with the License. You may obtain
  a copy of the License at

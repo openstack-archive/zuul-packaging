@@ -14,6 +14,12 @@ override_dh_auto_clean:
 	dh_auto_clean
 	rm -rf *.egg*
 
+override_dh_auto_install:
+	dh_auto_install
+	install -D -m 0644 $(CURDIR)/etc/layout.yaml-sample $(CURDIR)/debian/etc/zuul/layout.yaml
+	install -D -m 0644 $(CURDIR)/etc/logging.conf-sample $(CURDIR)/debian/etc/zuul/logging.conf
+	install -D -m 0644 $(CURDIR)/etc/zuul.conf-sample $(CURDIR)/debian/etc/zuul/zuul.conf
+
 override_dh_auto_test:
 ifeq (,$(filter nocheck,$(DEB_BUILD_OPTIONS)))
 	nosetests
