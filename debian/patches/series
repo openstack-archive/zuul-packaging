@@ -1,2 +1,2 @@
 0001-Fix-import-error-for-zuul-version-with-docs.patch
-0002-Add-user.email-and-user.name-to-.git-config.patch
+0002-Add-the-ability-to-set-git-user.email-and-user.name.patch

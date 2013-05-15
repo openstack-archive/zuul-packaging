@@ -1,4 +1,4 @@
-From d401af40cc3948dc1e68412406ba2095cc508c93 Mon Sep 17 00:00:00 2001
+From b67aba1d94ee95399ed09bd287be16fbf558d8dc Mon Sep 17 00:00:00 2001
 From: Paul Belanger <paul.belanger@polybeacon.com>
 Date: Mon, 13 May 2013 19:22:14 -0400
 Subject: [PATCH] Add the ability to set git user.email and user.name
@@ -23,14 +23,19 @@ to do so.
 
 Change-Id: I896194d8d1f5334026954b02f3a1a8dd82bed2ac
 Signed-off-by: Paul Belanger <paul.belanger@polybeacon.com>
+Reviewed-on: https://review.openstack.org/29015
+Reviewed-by: James E. Blair <corvus@inaugust.com>
+Approved: Clark Boylan <clark.boylan@gmail.com>
+Reviewed-by: Clark Boylan <clark.boylan@gmail.com>
+Tested-by: Jenkins
 ---
  doc/source/zuul.rst      |    8 ++++++++
  etc/zuul.conf-sample     |    2 ++
  tests/fixtures/zuul.conf |    2 ++
  tests/test_scheduler.py  |    4 ++++
  zuul/merger.py           |   15 ++++++++++++---
- zuul/scheduler.py        |   16 ++++++++++++++--
- 6 files changed, 42 insertions(+), 5 deletions(-)
+ zuul/scheduler.py        |   12 +++++++++++-
+ 6 files changed, 39 insertions(+), 4 deletions(-)
 
 diff --git a/doc/source/zuul.rst b/doc/source/zuul.rst
 index 96faf86..2899fdd 100644
@@ -141,7 +146,7 @@ index 7ad7eed..aaffa43 100644
          except:
              self.log.exception("Unable to initialize repo for %s" % project)
 diff --git a/zuul/scheduler.py b/zuul/scheduler.py
-index 8ff5a27..00113c5 100644
+index 8ff5a27..cf862e3 100644
 --- a/zuul/scheduler.py
 +++ b/zuul/scheduler.py
 @@ -246,6 +246,16 @@ class Scheduler(threading.Thread):
@@ -161,16 +166,12 @@ index 8ff5a27..00113c5 100644
          if self.config.has_option('zuul', 'push_change_refs'):
              push_refs = self.config.getboolean('zuul', 'push_change_refs')
          else:
-@@ -256,8 +266,10 @@ class Scheduler(threading.Thread):
-         else:
+@@ -257,7 +267,7 @@ class Scheduler(threading.Thread):
              sshkey = None
  
--        self.merger = merger.Merger(self.trigger, merge_root, push_refs,
+         self.merger = merger.Merger(self.trigger, merge_root, push_refs,
 -                                    sshkey)
-+        self.merger = merger.Merger(
-+            self.trigger, merge_root, push_refs, sshkey, merge_email,
-+            merge_name
-+        )
++                                    sshkey, merge_email, merge_name)
          for project in self.projects.values():
              url = self.trigger.getGitUrl(project)
              self.merger.addProject(project, url)
