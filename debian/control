@@ -19,11 +19,13 @@ Build-Depends-Indep:
  python-yaml
 Standards-Version: 3.9.3
 X-Python-Version: >= 2.6
+Homepage: https://launchpad.net/zuul
+Vcs-Git: git://github.com/pabelanger/zuul-deb.git
+Vcs-Browser: https://github.com/pabelanger/zuul-deb
 
 Package: zuul
 Architecture: all
-Depends: jenkins (>= 1.426),
- libjs-jquery,
+Depends: libjs-jquery,
  libjs-underscore,
  python-daemon,
  python-extras,
@@ -38,5 +40,12 @@ Depends: jenkins (>= 1.426),
  ${misc:Depends},
  ${python:Depends}
 Suggests:
+ jenkins (>= 1.426),
  python-statsd
 Description: Trunk gating system
+ Zuul is a program that is used to gate the source code repository of a project
+ so that changes are only merged if they pass tests.
+ .
+ The main component of Zuul is the scheduler. It receives events related to
+ proposed changes (currently from Gerrit), triggers tests based on those events
+ (currently on Jenkins), and reports back.
