@@ -14,6 +14,7 @@ Build-Depends-Indep:
  python-paste,
  python-setuptools,
  python-sphinx (>= 1.0.7+dfsg),
+ python-statsd,
  python-voluptuous (<< 0.7),
  python-webob,
  python-yaml
@@ -25,7 +26,8 @@ Vcs-Browser: https://github.com/pabelanger/zuul-deb
 
 Package: zuul
 Architecture: all
-Depends: libjs-jquery,
+Depends: adduser,
+ libjs-jquery,
  libjs-underscore,
  python-daemon,
  python-extras,

@@ -8,12 +8,14 @@ Copyright: 2011-2013, OpenStack, LLC.
            2012, Hewlett-Packard Development Company, L.P.
            2013, Antoine "hashar" Musso
            2013, OpenStack Foundation
-           2013, Timo Tijhof
-           2013, Wikimedia Foundation
+           2013, Timo "Krinkle" Tijhof
+           2013, Wikimedia Foundation Inc.
 License: Apache
 
 Files: debian/*
-Copyright: 2012 Paul Belanger <paul.belanger@polybeacon.com>
+Copyright: 2012-2013 Paul Belanger <paul.belanger@polybeacon.com>
+           2013 Antoine Musso <hashar@free.fr>
+           2013 Wikimedia Foundation Inc.
 License: Apache
 
 License: Apache
