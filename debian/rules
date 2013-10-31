@@ -3,6 +3,12 @@
 # Uncomment this to turn on verbose mode.
 #export DH_VERBOSE=1
 
+UPSTREAM_GIT = git://github.com/openstack-infra/zuul.git
+
+include /usr/share/openstack-pkg-tools/pkgos.make
+
+export OSLO_PACKAGE_VERSION=$(VERSION)
+
 %:
 	dh $@ --with python2,sphinxdoc
 
@@ -24,6 +30,3 @@ override_dh_auto_test:
 ifeq (,$(filter nocheck,$(DEB_BUILD_OPTIONS)))
 	nosetests
 endif
-
-get-orig-source:
-	uscan --noconf --force-download --rename --repack --destdir=.

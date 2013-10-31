@@ -3,6 +3,7 @@ Maintainer: Paul Belanger <paul.belanger@polybeacon.com>
 Section: python
 Priority: optional
 Build-Depends: debhelper (>= 8.0.0),
+ openstack-pkg-tools,
  python (>= 2.6)
 Build-Depends-Indep:
  python-extras,
