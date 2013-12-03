@@ -1,0 +1,60 @@
+From b36f8658d8979c545ad798bb1ea9489180ad6250 Mon Sep 17 00:00:00 2001
+From: Antoine Musso <hashar@free.fr>
+Date: Thu, 31 Oct 2013 10:52:55 +0100
+Subject: [PATCH] test: support voluptuous 7.0+
+
+Voluptuous 0.7.0 introduced a backward API incompatible change in
+upstream commit 475adebc:
+
+  https://github.com/alecthomas/voluptuous/commit/475adebc
+
+The schema are precompiled and the validate_X have been removed,
+voluptuous is now smart enough to detect the type of value being
+validated and would call an internal validation method matching the
+type.
+
+Commit is contained since 0.7.0:
+
+ $ git tag --contains 475adebc
+ 0.7.0
+ 0.7.1
+ 0.7.2
+ 0.8.1
+ 0.8.2
+ $
+
+I tested it using etc/layout.yaml-sample and added an inexistent
+pipeline to the project. The test yield:
+
+  voluptuous.MultipleInvalid: extra keys not allowed @
+  data['projects'][0]['nonpipe']
+
+Debian has recently accepted voluptuous 0.8.2 in testing, so if we want
+to package Zuul, we better have to upgrade our voluptuous requirement as
+well. Ref: http://packages.qa.debian.org/v/voluptuous.html
+
+Change-Id: I117ea644863b2e4a4dc3429aa81e868573382877
+---
+ requirements.txt        |    2 +-
+ zuul/layoutvalidator.py |    2 +-
+ 2 files changed, 2 insertions(+), 2 deletions(-)
+
+--- a/zuul/layoutvalidator.py
++++ b/zuul/layoutvalidator.py
+@@ -84,7 +84,7 @@ class LayoutSchema(object):
+             for k, v in value.items():
+                 self.validateJob(v, path + [k])
+         else:
+-            self.job_name.validate(path, self.job_name.schema, value)
++            self.job_name.schema(value)
+ 
+     def validateTemplateCalls(self, calls):
+         """ Verify a project pass the parameters required
+--- a/tools/pip-requires
++++ b/tools/pip-requires
+@@ -8,4 +8,4 @@ lockfile
+ python-daemon
+ extras
+ statsd>=1.0.0,<3.0
+-voluptuous>=0.6,<0.7
++voluptuous>=0.7

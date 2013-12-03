@@ -16,7 +16,7 @@ Build-Depends-Indep:
  python-setuptools,
  python-sphinx (>= 1.0.7+dfsg),
  python-statsd,
- python-voluptuous (<< 0.7),
+ python-voluptuous (>= 0.7),
  python-webob,
  python-yaml
 Standards-Version: 3.9.3
@@ -37,7 +37,7 @@ Depends: adduser,
  python-lockfile,
  python-paramiko,
  python-paste,
- python-voluptuous (<< 0.7),
+ python-voluptuous (>= 0.7),
  python-webob,
  python-yaml,
  ${misc:Depends},
