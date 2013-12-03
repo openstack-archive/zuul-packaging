@@ -22,8 +22,8 @@ Build-Depends-Indep:
 Standards-Version: 3.9.3
 X-Python-Version: >= 2.6
 Homepage: https://launchpad.net/zuul
-Vcs-Git: git://github.com/pabelanger/zuul-deb.git
-Vcs-Browser: https://github.com/pabelanger/zuul-deb
+Vcs-Git: git://git.openstack.org/openstack-infra/zuul-packaging
+Vcs-Browser: https://git.openstack.org/cgit/openstack-infra/zuul-packaging
 
 Package: zuul
 Architecture: all
