@@ -1,0 +1,12 @@
+Index: zuul-2.0.0/setup.cfg
+===================================================================
+--- zuul-2.0.0.orig/setup.cfg
++++ zuul-2.0.0/setup.cfg
+@@ -23,6 +23,7 @@ warnerrors = True
+ console_scripts = 
+ 	zuul-server = zuul.cmd.server:main
+ 	zuul = zuul.cmd.client:main
++	zuul-merger = zuul.cmd.merger:main
+ 
+ [build_sphinx]
+ source-dir = doc/source
