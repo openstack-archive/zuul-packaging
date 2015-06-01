@@ -1,0 +1,13 @@
+Verified+2: Jenkins
+Code-Review+1: Antoine Musso <hashar@free.fr>
+Code-Review+2: Jeremy Stanley <fungi@yuggoth.org>
+Workflow+1: Jeremy Stanley <fungi@yuggoth.org>
+Code-Review+1: Elizabeth K. Joseph <lyz@princessleia.com>
+Code-Review+1: Khai Do <zaro0508@gmail.com>
+Code-Review+1: Joshua Hesketh <joshua.hesketh@rackspace.com>
+Code-Review+1: Clint Adams <clint@gcfm.net>
+Submitted-by: Jenkins
+Submitted-at: Mon, 01 Jun 2015 15:52:51 +0000
+Reviewed-on: https://review.openstack.org/59590
+Project: openstack-infra/zuul-packaging
+Branch: refs/heads/debian/sid
