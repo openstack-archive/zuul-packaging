@@ -2,23 +2,30 @@ Source: zuul
 Maintainer: Paul Belanger <paul.belanger@polybeacon.com>
 Section: python
 Priority: optional
-Build-Depends: debhelper (>= 8.0.0),
- openstack-pkg-tools,
- python (>= 2.6)
-Build-Depends-Indep:
- python-extras,
- python-git (>= 0.3.2~RC1),
- python-jenkins,
- python-lockfile,
- python-nose,
- python-paramiko,
- python-paste,
- python-setuptools,
- python-sphinx (>= 1.0.7+dfsg),
- python-statsd,
- python-voluptuous (<< 0.7),
- python-webob,
- python-yaml
+Build-Depends: debhelper (>= 8.0.0), openstack-pkg-tools, python (>= 2.6)
+Build-Depends-Indep: python-apscheduler (<< 3.0),
+                     python-apscheduler (>= 2.1.1),
+                     python-extras,
+                     python-fixtures (>=0.3.14),
+                     python-gear (<< 1.0.0),
+                     python-gear (>= 0.5.7),
+                     python-git (>= 0.3.3),
+                     python-jenkins,
+                     python-lockfile,
+                     python-nose,
+                     python-paramiko (>= 1.8.0),
+                     python-paste,
+                     python-pbr (<< 1.0),
+                     python-pbr (>= 0.5.21),
+                     python-setuptools,
+                     python-sphinx (>= 1.0.7+dfsg),
+                     python-sphinxcontrib.blockdiag (>=0.5.5),
+                     python-sphinxcontrib.programoutput,
+                     python-statsd (>= 1.0.0),
+                     python-swiftclient (>=1.6),
+                     python-voluptuous (>= 0.7),
+                     python-webob (>= 1.2.3),
+                     python-yaml (>= 3.1.0)
 Standards-Version: 3.9.3
 X-Python-Version: >= 2.6
 Homepage: https://launchpad.net/zuul
@@ -28,23 +35,21 @@ Vcs-Browser: https://github.com/pabelanger/zuul-deb
 Package: zuul
 Architecture: all
 Depends: adduser,
- libjs-jquery,
- libjs-underscore,
- python-daemon,
- python-extras,
- python-git (>= 0.3.2~RC1),
- python-jenkins,
- python-lockfile,
- python-paramiko,
- python-paste,
- python-voluptuous (<< 0.7),
- python-webob,
- python-yaml,
- ${misc:Depends},
- ${python:Depends}
-Suggests:
- jenkins (>= 1.426),
- python-statsd
+         libjs-jquery,
+         libjs-underscore,
+         python-daemon (>= 2.0.4),
+         python-extras,
+         python-git (>= 0.3.3),
+         python-jenkins,
+         python-lockfile,
+         python-paramiko (>= 1.8.0),
+         python-paste,
+         python-voluptuous (>= 0.7),
+         python-webob (>= 1.2.3),
+         python-yaml (>= 3.1.0),
+         ${misc:Depends},
+         ${python:Depends}
+Suggests: jenkins (>= 1.426), python-statsd (>= 1.0.0)
 Description: Trunk gating system
  Zuul is a program that is used to gate the source code repository of a project
  so that changes are only merged if they pass tests.
